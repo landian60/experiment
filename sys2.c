@@ -29,7 +29,6 @@ struct node *change_even(struct node *h) //提出偶数链表
 {
     struct node *m1,*m2,*m3;
     int n=0;
-    m1=m2=m3=(struct node*)malloc(sizeof(struct node));
     m1=NULL;
     m2=h->next;
     m3=h->next;
@@ -37,7 +36,7 @@ struct node *change_even(struct node *h) //提出偶数链表
     {
         n++;
         if(n==1) m1=m3;
-        else
+        else if(m2->next->next!=NULL)
          {m3->next=m2->next->next;
          m2=m2->next->next;
          m3=m2;}
@@ -65,6 +64,7 @@ struct node *change_odd(struct node *h) //提出奇数链表
     return m1;
 
 }
+
 
 
 void print(struct node *head)
